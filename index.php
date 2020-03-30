@@ -29,7 +29,7 @@
 
                  <h1 class="page-header">
                     CMS Project
-                    <small>Juanma's Blog</small>
+                    <small>Juanma's CMS</small>
                 </h1>
 
                 <!-- First Blog Post -->
@@ -41,7 +41,7 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $post_date ?></p>
                 <hr>
-                <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="">
+                <img class="img-responsive" src="images/<?php echo $post_image ?>" alt="<?php echo $post_image ?>">
                 <hr>
                 <p><?php echo $post_content ?></p>
 

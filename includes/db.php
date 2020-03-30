@@ -7,7 +7,7 @@ $db['db_pass'] = 'root';
 $db['db_name'] = 'cms';
 
 foreach($db as $key => $value){
-define(strtoupper($key), $value);
+  define(strtoupper($key), $value);
 }
 
 
