@@ -1,37 +1,12 @@
 <!-- Blog SideBar Widgets Column -->
 
 
-    <?php 
-    
-        if(isset($_POST['submit'])){
-
-            $search = $_POST['search'];
-        };    
-
-        $query = "SELECT * FROM posts WHERE post_title LIKE '%$search%'";
-
-        $search_query = mysqli_query($connection, $query);
-
-        $row = mysqli_fetch_assoc($search_query);
-        
-        if(!$search_query){
-            die('QUERY FAILED' . mysqli_error($connection));
-        }else{
-
-            echo $row['post_title'];
-        }
-
-    
-    ?>
-
-
-
             <div class="col-md-4">
 
                 <!-- Blog Search Well -->
                 <div class="well">
                     <h4>Blog Search</h4>
-                    <form action="" method="POST">
+                    <form action="search.php" method="POST">
                         <div class="input-group">
                             <input name="search" type="text" class="form-control">
                             <span class="input-group-btn">
