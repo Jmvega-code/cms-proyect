@@ -36,7 +36,7 @@
 
             if($count == 0) {
             
-              echo "NO RESULTS";
+              echo "<h1>NO RESULTS</h1>";
             
             } else {
 
