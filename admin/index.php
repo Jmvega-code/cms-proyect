@@ -1,9 +1,16 @@
-<?php include "includes/header.php" ?>
+<?php include "includes/admin_header.php" ?>
 
     <div id="wrapper">
 
+
+    <?php if($connection) {
+        echo 'Hello';
+    }?>
+
+
+
         <!-- Navigation -->
-        <?php include "includes/navigation.php" ?>
+        <?php include "includes/admin_navigation.php" ?>
 
         <div id="page-wrapper">
 
@@ -13,7 +20,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Welcome to admin
+                            Welcome to the Admin Page
                             <small>Author</small>
                         </h1>
                     </div>
@@ -26,4 +33,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-        <?php include "includes/footer.php" ?>
+        <?php include "includes/admin_footer.php" ?>
