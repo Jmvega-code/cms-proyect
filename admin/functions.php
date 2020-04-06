@@ -23,34 +23,88 @@ function insert_categories() {
 }
 
 // FIND ALL CATEGORIES QUERY
-  function find_all_categories(){
+function find_all_categories(){
+  
+  global $connection;
+  
+  $query = "SELECT * FROM categories";
+  $select_categories = mysqli_query($connection, $query);
+  
+  while($row = mysqli_fetch_assoc($select_categories)){
+    
+    $cat_id = $row['cat_id'];
+    $cat_title = $row['cat_title'];
+    
+    echo "<tr>";
+    echo "<td>{$cat_id}</td>";
+    echo "<td>{$cat_title}</td>";
+    echo "<td><a style='font-size:20px'href='categories.php?delete={$cat_id}'><i class='fa fa-trash-o' ></i></a>";
+    echo "<td><a style='font-size:20px'href='categories.php?edit={$cat_id}'><i class='fa fa-pencil' ></i></a>";
+    echo "</tr>";
+  }
+}
+
+// DELETE CATEGORIES QUERY
+function delete_categories(){
+  
+  global $connection;
+  
+  if(isset($_GET['delete'])){
+    $the_cat_id = $_GET['delete'];
+    $query = "DELETE FROM categories WHERE cat_id = '{$the_cat_id}' ";
+    
+    $delete_query = mysqli_query($connection, $query);
+    
+    header('Location: categories.php');
+    
+  }
+}
+
+// FIND ALL POSTS QUERY
+function find_all_posts(){
 
     global $connection;
     
-    $query = "SELECT * FROM categories";
-    $select_categories = mysqli_query($connection, $query);
+    $query = "SELECT * FROM posts";
+    $select_posts = mysqli_query($connection, $query);
 
-    while($row = mysqli_fetch_assoc($select_categories)){
+    while($row = mysqli_fetch_assoc($select_posts)){
 
-      $cat_id = $row['cat_id'];
-      $cat_title = $row['cat_title'];
+      $post_id = $row['post_id'];
+      $post_author = $row['post_author'];
+      $post_title = $row['post_title'];
+      $post_category_id = $row['post_category_id'];
+      $post_image = $row['post_image'];
+      $post_content = $row['post_content'];
+      $post_tags = $row['post_tags'];
+      /* $post_comments = $row['post_comments']; */
+      $post_date = $row['post_date'];
+    
 
       echo "<tr>";
-      echo "<td>{$cat_id}</td>";
-      echo "<td>{$cat_title}</td>";
-      echo "<td><a style='font-size:20px'href='categories.php?delete={$cat_id}'><i class='fa fa-trash-o' ></i></a>";
-      echo "<td><a style='font-size:20px'href='categories.php?edit={$cat_id}'><i class='fa fa-pencil' ></i></a>";
+      echo "<td>{$post_id}</td>";
+      echo "<td>{$post_author}</td>";
+      echo "<td>{$post_title}</td>";
+      echo "<td>{$post_category_id}</td>";
+      echo "<td>{$post_image}</td>";
+      echo "<td>{$post_content}</td>";
+      echo "<td>{$post_tags}</td>";
+      /* echo "<td>{$post_comments}</td>"; */
+      echo "<td>{$post_date}</td>";
+      echo "<td><a style='font-size:20px'href='categories.php?delete={$post_id}'><i class='fa fa-trash-o' ></i></a>";
+      /*echo "<td><a style='font-size:20px'href='categories.php?edit={$cat_id}'><i class='fa fa-pencil' ></i></a>"; */
       echo "</tr>";
   }
 }
 
-function delete_categories(){
+// DELETE POSTS QUERY
+function delete_posts(){
 
   global $connection;
 
   if(isset($_GET['delete'])){
-    $the_cat_id = $_GET['delete'];
-    $query = "DELETE FROM categories WHERE cat_id = '{$the_cat_id}' ";
+    $post_id = $_GET['delete'];
+    $query = "DELETE FROM categories WHERE post_id = '{$post_id}' ";
 
     $delete_query = mysqli_query($connection, $query);
 
