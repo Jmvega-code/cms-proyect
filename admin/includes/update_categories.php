@@ -38,9 +38,7 @@
 
         $update_query = mysqli_query($connection, $query);
 
-        if(!$update_query) {
-          die('QUERY FAILED!' . mysqli_error($connection));
-        }
+        confirm($update_query);
 
         header('Location: categories.php');
 

@@ -37,8 +37,8 @@
             include "includes/add_post.php";
             break;
 
-            case 'edit_post';
-            include "includes/edit_post.php";
+            case 'update_post';
+            include "includes/update_post.php";
             break;
 
             default:
