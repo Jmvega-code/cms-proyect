@@ -98,8 +98,8 @@ function find_all_posts(){
       echo "<td>{$post_tags}</td>";
       /* echo "<td>{$post_comments}</td>"; */
       echo "<td>{$post_date}</td>";
-      echo "<td><a style='font-size:20px'href='posts.php?delete={$post_id}'><i class='fa fa-trash-o' ></i></a>";
-      /*echo "<td><a style='font-size:20px'href='categories.php?edit={$cat_id}'><i class='fa fa-pencil' ></i></a>"; */
+      echo "<td><a style='font-size:20px' href='posts.php?delete={$post_id}'><i class='fa fa-trash-o' ></i></a>";
+      echo "<td><a style='font-size:20px'href='posts.php?edit={$post_id}'><i class='fa fa-pencil' ></i></a>";
       echo "</tr>";
   }
 }
@@ -114,6 +114,8 @@ function delete_posts(){
     $query = "DELETE FROM posts WHERE post_id = '{$post_id}' ";
 
     $delete_query = mysqli_query($connection, $query);
+
+    confirm($delete_query);
 
     header('Location: posts.php');
 
