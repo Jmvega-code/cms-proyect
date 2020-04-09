@@ -1,6 +1,6 @@
 <?php
 
-function confirm($query) {
+function confirmQuery($query) {
   global $connection;
   if(!$query) {
     die('QUERY FAILED!' . mysqli_error($connection));
@@ -22,7 +22,7 @@ function insert_categories() {
       $create_categories_query = mysqli_query($connection, $query);
       header('Location: categories.php');
 
-      confirm($create_categories_query);
+      confirmQuery($create_categories_query);
     }
   } 
 }
@@ -81,11 +81,12 @@ function find_all_posts(){
       $post_category_id = $row['post_category_id'];
       $post_status = $row['post_status'];
       $post_image = $row['post_image'];
-      $post_content = $row['post_content'];
       $post_tags = $row['post_tags'];
+      $post_content = $row['post_content'];
       /* $post_comments = $row['post_comments']; */
       $post_date = $row['post_date'];
     
+      $post_content = substr($post_content, 0, 30);
 
       echo "<tr>";
       echo "<td>{$post_id}</td>";
@@ -94,12 +95,12 @@ function find_all_posts(){
       echo "<td>{$post_category_id}</td>";
       echo "<td>{$post_status}</td>";
       echo "<td><img width='100px' class='img-responsive' src='../images/{$post_image}' alt='image'></td>";
-      echo "<td>{$post_content}</td>";
       echo "<td>{$post_tags}</td>";
+      echo "<td>{$post_content}...</td>";
       /* echo "<td>{$post_comments}</td>"; */
       echo "<td>{$post_date}</td>";
       echo "<td><a style='font-size:20px' href='posts.php?delete={$post_id}'><i class='fa fa-trash-o' ></i></a>";
-      echo "<td><a style='font-size:20px'href='posts.php?edit={$post_id}'><i class='fa fa-pencil' ></i></a>";
+      echo "<td><a style='font-size:20px'href='posts.php?source=update_post&p_id={$post_id}'><i class='fa fa-pencil' ></i></a>";
       echo "</tr>";
   }
 }
@@ -115,7 +116,7 @@ function delete_posts(){
 
     $delete_query = mysqli_query($connection, $query);
 
-    confirm($delete_query);
+    confirmQuery($delete_query);
 
     header('Location: posts.php');
 

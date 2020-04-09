@@ -8,7 +8,7 @@
       <th>Status</th>
       <th>Image</th>
       <th>Tags</th>
-      <th>Comments</th>
+      <th>Content</th>
       <th>Date</th>
       <th>Delete</th>
       <th>Edit</th>
