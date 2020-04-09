@@ -25,7 +25,9 @@ if(isset($_POST['create_post'])) {
 
     $create_post_query = mysqli_query($connection, $query);
 
-    confirm($create_post_query);
+    confirmQuery($create_post_query);
+
+    header('Location: posts.php');
 
   }
 
@@ -65,8 +67,7 @@ if(isset($_POST['create_post'])) {
 
   <div class="form-group">
     <label for="post_content">Post Content</label>
-    <textarea type="file" class="form-control" name="post_content" id="" cols="30" rows="10">
-    </textarea>
+    <textarea type="file" class="form-control" name="post_content" id="" cols="30" rows="10"></textarea>
   </div>
 
   <div class="form-group">
