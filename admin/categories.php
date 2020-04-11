@@ -54,7 +54,7 @@
                     <th>Id</th>
                     <th>Category Title</th>
                     <th>Delete</th>
-                    <th>Update</th>
+                    <th>Edit</th>
                   </tr>
                 </thead>
                 <tbody>
