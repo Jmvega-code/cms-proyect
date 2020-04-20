@@ -13,6 +13,10 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
+                <h1 class="page-header">
+                   CMS Project
+                   <small>Juanma's CMS</small>
+               </h1>
 
             <?php 
             
@@ -30,10 +34,6 @@
                   $post_content = substr($post_content, 0, 200);
                   ?>
 
-                 <h1 class="page-header">
-                    CMS Project
-                    <small>Juanma's CMS</small>
-                </h1>
 
                 <!-- First Blog Post -->
                 <h2>
@@ -47,7 +47,7 @@
                 <a href="post.php?p_id=<?php echo $post_id ?>"><img class="img-responsive" src="images/<?php echo $post_image ?>" alt="<?php echo $post_image ?>"></a>
                 <hr>
                 <p><?php echo $post_content ?></p>
-
+<hr>
                 <?php } ?>
 
 
