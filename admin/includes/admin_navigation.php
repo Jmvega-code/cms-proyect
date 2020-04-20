@@ -53,7 +53,7 @@
                         <a href="categories.php"><i class="fa fa-fw fa-wrench"></i> Categories</a>
                     </li>
                     <li class="">
-                        <a href="blank-page.html"><i class="fa fa-fw fa-comments"></i> Comments</a>
+                        <a href="comments.php"><i class="fa fa-fw fa-comments"></i> Comments</a>
                     </li>
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#users"><i class="fa fa-fw fa-users"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
