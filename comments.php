@@ -1,7 +1,29 @@
 <hr>
 
 <!-- Blog Comments -->
+<?php
 
+if(isset($_POST['create_comment'])){
+
+    global $connection;
+    
+    $the_post_id = $_GET['p_id'];
+    
+    $comment_author = $_POST['comment_author'];
+    $comment_email = $_POST['comment_email'];
+    $comment_content = $_POST['comment_content'];
+    $comment_status = 'unapproved';
+
+    $query = "INSERT INTO comments(comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) VALUES ('{$the_post_id}', '{$comment_author}', '{$comment_email}', '{$comment_content}', '{$comment_status}', now() )";
+    
+    $create_comment_query = mysqli_query($connection, $query);
+
+    confirmQuery($create_comment_query);
+
+    header("Location: posts.php?p_id='{$the_post_id}' ");
+
+}
+?>
 
 <!-- Posted Comments -->
 
@@ -43,7 +65,7 @@
 <!-- Comments Form -->
 <div class="well">
     <h4>Leave a Comment:</h4>
-    <form role="form">
+    <form action="" method="POST" role="form">
         <div class="form-group">
             <label for="comment_author">Author</label>
             <input type="text" class="form-control" name="comment_author" id="">
@@ -54,9 +76,9 @@
         </div>
         <div class="form-group">
         <label for="comment_content">Your Comment</label>
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea name="comment_content" class="form-control" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
