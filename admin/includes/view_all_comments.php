@@ -40,28 +40,28 @@
             echo "<td>{$comment_email}</td>";
             echo "<td>{$comment_status}</td>";
       
-      
-           /*    $query = "SELECT * FROM posts WHERE post_id = '{$comment_post_id}' ";
+              $query = "SELECT * FROM posts WHERE post_id = '{$comment_post_id}' ";
               $select_post_id = mysqli_query($connection, $query);
               
               while($row = mysqli_fetch_assoc($select_post_id)){
                 
+                  $post_id = $row['post_id'];
                   $post_title = $row['post_title'];
-              } */
+              } 
       
-            echo "<td>{$comment_post_id}</td>";
+            echo "<td><a href='../post.php?p_id=$post_id'>{$post_title}</a></td>";
             echo "<td>{$comment_date}</td>";
-            echo "<td><a style='font-size:20px' href='posts.php?delete={$comment_id}'><i class='fa fa-thumbs-o-up' aria-hidden='true' ></i></a>";
-            echo "<td><a style='font-size:20px' href='posts.php?delete={$comment_id}'><i class='fa fa-thumbs-o-down' aria-hidden='true' ></i></a>";
-            echo "<td><a style='font-size:20px' href='posts.php?delete={$comment_id}'><i class='fa fa-trash-o' ></i></a>";
-            echo "<td><a style='font-size:20px'href='posts.php?source=update_post&p_id={$comment_id}'><i class='fa fa-pencil' ></i></a>";
+            echo "<td><a style='font-size:20px' href='comments.php?delete={$comment_id}'><i class='fa fa-thumbs-o-up' aria-hidden='true' ></i></a>";
+            echo "<td><a style='font-size:20px' href='comments.php?delete={$comment_id}'><i class='fa fa-thumbs-o-down' aria-hidden='true' ></i></a>";
+            echo "<td><a style='font-size:20px' href='comments.php?delete=$comment_id'><i class='fa fa-trash-o' ></i></a>";
+            echo "<td><a style='font-size:20px'href='comments.php?source=update_post&p_id={$comment_id}'><i class='fa fa-pencil' ></i></a>";
             echo "</tr>";
         }
           ?>
 
           <?php 
           // DELETE CATEGORIES QUERY
-          delete_posts();
+          delete_comments();
           ?>
 
       </tbody>

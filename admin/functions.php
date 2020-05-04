@@ -133,6 +133,24 @@ function delete_posts(){
   }
 }
 
+// DELETE COMMENTS QUERY
+function delete_comments(){
+
+  global $connection;
+
+  if(isset($_GET['delete'])){
+    $comment_id = $_GET['delete'];
+    $query = "DELETE FROM comments WHERE comment_id = '{$comment_id}' ";
+
+    $delete_query = mysqli_query($connection, $query);
+
+    confirmQuery($delete_query);
+
+    header("Location: comments.php");
+
+  }
+}
+
 
 
 ?>
