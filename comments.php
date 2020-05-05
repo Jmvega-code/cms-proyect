@@ -20,7 +20,7 @@ if(isset($_POST['create_comment'])){
 
     confirmQuery($create_comment_query);
 
-    header("Location: posts.php?p_id='{$the_post_id}' ");
+   /*  header("Location: post.php?p_id='{$the_post_id}' "); */
 
 }
 ?>
@@ -32,7 +32,9 @@ if(isset($_POST['create_comment'])){
 
 <?php
           // FIND ALL COMMENTS QUERY
-          $query = "SELECT * FROM comments";
+          $query = "SELECT * FROM comments WHERE comment_post_id = {$the_post_id} ";
+          $query .= "AND comment_status = 'approved' ";
+          $query .= "ORDER BY comment_id DESC ";
           $select_comments = mysqli_query($connection, $query);
           
           while($row = mysqli_fetch_assoc($select_comments)){
@@ -43,8 +45,7 @@ if(isset($_POST['create_comment'])){
               $comment_status = $row['comment_status'];
               $comment_post_id = $row['comment_post_id'];
               $comment_date = $row['comment_date'];
-              
-              $comment_content = substr($comment_content, 0, 30);
+
               ?>
 
         <div class="media">
