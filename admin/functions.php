@@ -83,7 +83,7 @@ function find_all_posts(){
       $post_image = $row['post_image'];
       $post_tags = $row['post_tags'];
       $post_content = $row['post_content'];
-      /* $post_comments = $row['post_comments']; */
+      $post_comments = $row['post_comment_count'];
       $post_date = $row['post_date'];
     
       $post_content = substr($post_content, 0, 30);
@@ -107,7 +107,7 @@ function find_all_posts(){
       echo "<td><img width='100px' class='img-responsive' src='../images/{$post_image}' alt='image'></td>";
       echo "<td>{$post_tags}</td>";
       echo "<td>{$post_content}...</td>";
-      /* echo "<td>{$post_comments}</td>"; */
+      echo "<td>{$post_comments}</td>";
       echo "<td>{$post_date}</td>";
       echo "<td><a style='font-size:20px' href='posts.php?delete={$post_id}'><i class='fa fa-trash-o' ></i></a>";
       echo "<td><a style='font-size:20px'href='posts.php?source=update_post&p_id={$post_id}'><i class='fa fa-pencil' ></i></a>";
