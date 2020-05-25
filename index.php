@@ -20,7 +20,7 @@
 
             <?php 
             
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts WHERE post_status = 'published' ";
             $select_all_posts_query = mysqli_query($connection, $query);
                 
                 while($row = mysqli_fetch_assoc($select_all_posts_query)){
@@ -44,7 +44,7 @@
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on <?php echo $post_date ?></p>
                 <hr>
-                <a href="post.php?p_id=<?php echo $post_id ?>"><img class="img-responsive" src="images/<?php echo $post_image ?>" alt="<?php echo $post_image ?>"></a>
+                <a href="post.php?p_id=<?php echo $post_id ?>"><img style="max-width:50%;" class="img-responsive" src="images/<?php echo $post_image ?>" alt="<?php echo $post_image ?>"></a>
                 <hr>
                 <p><?php echo $post_content ?></p>
 <hr>
@@ -54,8 +54,7 @@
                
                 <a class="btn btn-primary" href="post.php">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                <hr>
-
+               
             </div>  
 
 <!-- Blog Sidebar Widgets Column -->
